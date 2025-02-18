@@ -1,2 +1,31 @@
 
-<h2>{{name}}</h2>
+<!-- <h2>{{name}}</h2> -->
+<!-- <img src={{imagePath}} alt="{{name}}"> -->
+
+
+
+
+<section id="tasks">
+    <header>
+        <h2>{{name}}'s</h2>
+
+        <menu>
+            <button> Add Tasks</button>
+        </menu>
+     </header>
+
+
+
+    <ul>
+        @for (task of selectedUserTasks; track task.id) {
+            <li>
+                <app-task [task]="task"></app-task>
+            </li>
+        }
+    </ul>
+
+
+</section>
+
+
+
