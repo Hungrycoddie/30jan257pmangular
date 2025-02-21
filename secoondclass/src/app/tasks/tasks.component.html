@@ -2,7 +2,7 @@
 <!-- <h2>{{name}}</h2> -->
 <!-- <img src={{imagePath}} alt="{{name}}"> -->
  @if(isAddingTask){
-    <app-new-task></app-new-task>
+    <app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)"></app-new-task>
  }
 
 <section id="tasks">
