@@ -21,10 +21,10 @@ export class TasksComponent {
   //   return 'assets/users/' + this.avatar;
   // }
 
+ 
 
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
-  }
+    return 
 
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
@@ -35,7 +35,7 @@ export class TasksComponent {
   }
 
   onCancelAddTask() {
-    this.isAddingTask = false
+    this.isAddingTask = false;
   }
 
   onAddTask(taskData: NewTaskData) {
@@ -43,9 +43,9 @@ export class TasksComponent {
       id: new Date().getTime().toString(),
       userId: this.userId,
       title: taskData.title,
-      summary:taskData.summary,
+      summary: taskData.summary,
       dueDate: taskData.date,
-    })
+    });
     this.isAddingTask = false;
   }
 }
