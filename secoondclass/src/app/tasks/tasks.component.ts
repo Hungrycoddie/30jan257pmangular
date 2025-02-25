@@ -1,8 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
-import { filter } from 'rxjs';
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { type NewTaskData } from './task/task.model';
+import { TasksService } from './tasks.services';
+
+
+
+
+
+
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -13,39 +20,32 @@ import { type NewTaskData } from './task/task.model';
 export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
-
   isAddingTask = false;
   // @Input( {required:true}) avatar?: string;
 
   // get imagePath() {
   //   return 'assets/users/' + this.avatar;
   // }
+  // private tasksService: TasksService;
 
- 
+
+  // constructor(tasksServices: TasksService) {
+  //   this.tasksService = tasksServices
+  // }
+
+  constructor(private tasksService: TasksService) {
+}
+
 
   get selectedUserTasks() {
-    return 
-
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(taskData: NewTaskData) {
-    this.tasks.unshift({
-      id: new Date().getTime().toString(),
-      userId: this.userId,
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date,
-    });
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 }
