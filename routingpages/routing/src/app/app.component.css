@@ -1,0 +1,12 @@
+nav a {
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+
+.active{
+    background-color: #4CAF50;
+    color: white;
+}
