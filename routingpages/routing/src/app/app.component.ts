@@ -1,30 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import path from 'path';
-import { HomeComponent } from './pages/home/home.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { AboutComponent } from './pages/about/about.component';
-import { routes } from './app.routes';
-import { RouterModule } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-
-
+import { RouterLink, RouterLinkActive, RouterOutlet,} from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [ RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'routing';
+  title = 'angularrouting';
 }
-
-@NgModule({
-
-  imports: [RouterOutlet, BrowserModule, RouterModule.forRoot(routes)],
-  providers: [],
-
-})
-export class AppModule {}
